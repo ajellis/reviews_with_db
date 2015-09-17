@@ -20,7 +20,7 @@ class Department < ActiveRecord::Base
   end
 
   def give_raise(total_amount)
-    getting_raise = self.employees.select {|e| e.satisfactory?}
+    getting_raise = employees.select {|e| e.satisfactory?}
     getting_raise.each {|e| e.give_raise(total_amount / getting_raise.length)}
   end
 end
